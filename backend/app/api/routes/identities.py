@@ -3,6 +3,7 @@ from __future__ import annotations
 import uuid
 
 from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.core.deps import get_db
@@ -32,6 +33,18 @@ async def verify_and_ingest(payload: dict, db: Session = Depends(get_db)) -> dic
 
     if not result["verified"]:
         return {"status": "rejected", "reason": "identity_not_verified"}
+
+    bvn = payload.get("bvn")
+    if bvn:
+        existing = db.scalar(select(Identity).where(Identity.bvn == bvn))
+        if existing is not None:
+            # Same BVN re-verified (e.g. a resubmitted form) — treat as
+            # idempotent rather than inserting a duplicate graph node.
+            return {
+                "status": "verified",
+                "identity_id": str(existing.id),
+                "qoreid_raw": result["raw_response"],
+            }
 
     node = upsert_identity_node(
         name=result["matched_name"],
