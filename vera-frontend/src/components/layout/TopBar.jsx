@@ -63,7 +63,7 @@ export function TopBar() {
 
   return (
     <header className="bg-[#0D1117] border-b border-[#1E2535] flex flex-col shrink-0">
-      <div className="h-0.5 w-full squad-gradient-bg" />
+      <div className="h-0.5 w-full brand-gradient-bg" />
     <div className="h-13 flex items-center px-4 lg:px-6 gap-3">
       <button
         onClick={toggleSidebar}
@@ -112,7 +112,7 @@ export function TopBar() {
       </div>
 
       <div className="flex items-center gap-3 ml-auto">
-        <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full squad-gradient-bg glow-squad">
+        <div className="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full brand-gradient-bg glow-brand">
           <span className="text-[10px] font-bold text-white tracking-wide uppercase">TiT 6.0 · QoreID Track</span>
         </div>
 

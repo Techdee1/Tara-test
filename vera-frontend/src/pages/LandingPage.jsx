@@ -46,9 +46,9 @@ function IconShield({ className, style }) {
 
 const DARK = '#0A1628'
 const ACCENT = '#00D68F'
-const SQUAD_FROM = '#FF4C1D'
-const SQUAD_TO = '#9B0063'
-const SQUAD_GRADIENT = `linear-gradient(135deg, ${SQUAD_FROM}, ${SQUAD_TO})`
+const BRAND_FROM = '#FF4C1D'
+const BRAND_TO = '#9B0063'
+const BRAND_GRADIENT = `linear-gradient(135deg, ${BRAND_FROM}, ${BRAND_TO})`
 
 /* ─── Scroll-fade observer ─────────────────────────────────────────────────── */
 function useFadeUp() {
@@ -76,7 +76,7 @@ function HeroGraph() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
       role="img"
-      aria-label="Network graph visualising financial entities connected by transactions. Five central high-risk nodes highlighted in red represent a POS cash-out ring, surrounded by medium-risk feeder nodes in amber and low-risk entry nodes in green."
+      aria-label="Network graph visualising verified identities connected by shared attributes. Five central nodes highlighted in red represent a coordinated identity ring — sharing a device and address — surrounded by amber identities under review and green identities verified independent."
     >
       <defs>
         <filter id="hg-glow" x="-60%" y="-60%" width="220%" height="220%">
@@ -150,7 +150,7 @@ function DeploymentDiagram() {
       xmlns="http://www.w3.org/2000/svg"
       className="w-full max-w-sm mx-auto lg:max-w-none"
       role="img"
-      aria-label="TARA deployment architecture diagram showing TARA Engine, Neo4j graph database, and PostgreSQL inside a bank infrastructure boundary. Transactions flow in from outside; STR reports flow out to NFIU."
+      aria-label="TARA deployment architecture diagram showing the TARA Engine, an in-memory identity graph, and a PostgreSQL identity store inside your infrastructure boundary. QoreID verification flows in from outside; trust verdicts flow out to a human reviewer."
     >
       <defs>
         <marker id="dd-arr-g" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
@@ -168,7 +168,7 @@ function DeploymentDiagram() {
       {/* TARA Engine box */}
       <rect x="44" y="46" width="258" height="56" rx="6" fill="#F0FFF8" stroke={ACCENT} strokeWidth="1.5" />
       <text x="173" y="68" textAnchor="middle" fontSize="12" fill={DARK} fontFamily="Space Grotesk, DM Sans, sans-serif" fontWeight="700">TARA Engine</text>
-      <text x="173" y="86" textAnchor="middle" fontSize="9" fill="#6B7280" fontFamily="DM Sans, sans-serif">FastAPI  ·  Redis Queue  ·  Detection Workers</text>
+      <text x="173" y="86" textAnchor="middle" fontSize="9" fill="#6B7280" fontFamily="DM Sans, sans-serif">FastAPI  ·  In-Memory Graph  ·  Detection Patterns</text>
 
       {/* Connector tree */}
       <line x1="173" y1="102" x2="173" y2="130" stroke="#D1D5DB" strokeWidth="1.5" />
@@ -176,29 +176,29 @@ function DeploymentDiagram() {
       <line x1="92"  y1="130" x2="92"  y2="148" stroke="#D1D5DB" strokeWidth="1.5" />
       <line x1="254" y1="130" x2="254" y2="148" stroke="#D1D5DB" strokeWidth="1.5" />
 
-      {/* Neo4j */}
+      {/* Identity graph */}
       <rect x="34"  y="148" width="116" height="52" rx="6" fill="#F9FAFB" stroke="#E5E7EB" strokeWidth="1" />
-      <text x="92"  y="170" textAnchor="middle" fontSize="10" fill="#111827" fontFamily="DM Sans, sans-serif" fontWeight="600">Neo4j Graph</text>
-      <text x="92"  y="186" textAnchor="middle" fontSize="8.5" fill="#6B7280" fontFamily="DM Sans, sans-serif">Entity relationships</text>
+      <text x="92"  y="170" textAnchor="middle" fontSize="10" fill="#111827" fontFamily="DM Sans, sans-serif" fontWeight="600">Identity Graph</text>
+      <text x="92"  y="186" textAnchor="middle" fontSize="8.5" fill="#6B7280" fontFamily="DM Sans, sans-serif">Shared-attribute edges</text>
 
       {/* PostgreSQL */}
       <rect x="196" y="148" width="116" height="52" rx="6" fill="#F9FAFB" stroke="#E5E7EB" strokeWidth="1" />
       <text x="254" y="170" textAnchor="middle" fontSize="10" fill="#111827" fontFamily="DM Sans, sans-serif" fontWeight="600">PostgreSQL</text>
-      <text x="254" y="186" textAnchor="middle" fontSize="8.5" fill="#6B7280" fontFamily="DM Sans, sans-serif">Transactions · Alerts</text>
+      <text x="254" y="186" textAnchor="middle" fontSize="8.5" fill="#6B7280" fontFamily="DM Sans, sans-serif">Identities · Relationships</text>
 
-      {/* Transaction input (from right) */}
-      <text x="375" y="68" textAnchor="middle" fontSize="9" fill="#9CA3AF" fontFamily="DM Sans, sans-serif">Transactions</text>
+      {/* Verification input (from right) */}
+      <text x="375" y="68" textAnchor="middle" fontSize="9" fill="#9CA3AF" fontFamily="DM Sans, sans-serif">QoreID Verification</text>
       <line x1="375" y1="73" x2="375" y2="84" stroke="#9CA3AF" strokeWidth="1.2" />
       <line x1="375" y1="84" x2="305" y2="70" stroke="#9CA3AF" strokeWidth="1.2" markerEnd="url(#dd-arr-gray)" />
 
-      {/* STR output → NFIU */}
+      {/* Trust verdict → human reviewer */}
       <line x1="92" y1="200" x2="92" y2="240" stroke={ACCENT} strokeWidth="1.5" />
       <line x1="92" y1="240" x2="170" y2="260" stroke={ACCENT} strokeWidth="1.5" markerEnd="url(#dd-arr-g)" />
 
       <rect x="172" y="248" width="56" height="26" rx="5" fill="#ECFDF5" stroke={ACCENT} strokeWidth="1.5" />
-      <text x="200" y="265" textAnchor="middle" fontSize="10" fill={ACCENT} fontFamily="DM Sans, sans-serif" fontWeight="700">NFIU</text>
+      <text x="200" y="265" textAnchor="middle" fontSize="9" fill={ACCENT} fontFamily="DM Sans, sans-serif" fontWeight="700">Reviewer</text>
 
-      <text x="105" y="258" fontSize="8.5" fill={ACCENT} fontFamily="DM Sans, sans-serif">STR Reports →</text>
+      <text x="105" y="258" fontSize="8.5" fill={ACCENT} fontFamily="DM Sans, sans-serif">Trust Verdict →</text>
     </svg>
   )
 }
@@ -213,42 +213,41 @@ function Nav() {
       className="sticky top-0 z-50 border-b border-white/10"
       style={{ background: DARK }}
     >
-      {/* Squad gradient top strip */}
-      <div style={{ height: '2px', background: SQUAD_GRADIENT }} />
+      {/* Brand accent top strip */}
+      <div style={{ height: '2px', background: BRAND_GRADIENT }} />
       <div className="max-w-[1200px] mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-y-3">
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 no-underline">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="32" height="32" rx="7" fill={SQUAD_FROM} fillOpacity="0.15" />
-            <circle cx="16" cy="10" r="3" fill={SQUAD_FROM} />
-            <circle cx="8"  cy="24" r="3" fill={SQUAD_TO} fillOpacity="0.9" />
-            <circle cx="24" cy="24" r="3" fill={SQUAD_TO} fillOpacity="0.9" />
-            <line x1="16" y1="13" x2="8"  y2="21" stroke={SQUAD_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
-            <line x1="16" y1="13" x2="24" y2="21" stroke={SQUAD_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
-            <line x1="8"  y1="24" x2="24" y2="24" stroke={SQUAD_TO} strokeWidth="1.5" strokeOpacity="0.3" />
+            <rect width="32" height="32" rx="7" fill={BRAND_FROM} fillOpacity="0.15" />
+            <circle cx="16" cy="10" r="3" fill={BRAND_FROM} />
+            <circle cx="8"  cy="24" r="3" fill={BRAND_TO} fillOpacity="0.9" />
+            <circle cx="24" cy="24" r="3" fill={BRAND_TO} fillOpacity="0.9" />
+            <line x1="16" y1="13" x2="8"  y2="21" stroke={BRAND_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
+            <line x1="16" y1="13" x2="24" y2="21" stroke={BRAND_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
+            <line x1="8"  y1="24" x2="24" y2="24" stroke={BRAND_TO} strokeWidth="1.5" strokeOpacity="0.3" />
           </svg>
           <span
             className="text-white text-lg font-display tracking-wide"
             style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700 }}
           >
-            VE<span style={{ background: SQUAD_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>RA</span>
+            TA<span style={{ background: BRAND_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>RA</span>
           </span>
         </a>
 
         {/* Links + CTA */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
           <button onClick={() => scrollTo('how-it-works')} className="text-sm text-[#94A3B8] hover:text-white transition-colors bg-transparent border-0 cursor-pointer">How It Works</button>
-          <button onClick={() => scrollTo('why-nigeria')}  className="text-sm text-[#94A3B8] hover:text-white transition-colors bg-transparent border-0 cursor-pointer">Why Nigeria</button>
+          <button onClick={() => scrollTo('what-it-detects')}  className="text-sm text-[#94A3B8] hover:text-white transition-colors bg-transparent border-0 cursor-pointer">What It Detects</button>
           <a href="mailto:damilareodebiyi3@gmail.com"       className="text-sm text-[#94A3B8] hover:text-white transition-colors no-underline">Contact</a>
-          {/* Squad logo badge */}
+          {/* Track badge */}
           <div className="hidden sm:flex items-center gap-2 border border-white/10 rounded-full px-3 py-1">
-            <img src="/squad-logo.svg" alt="Squad" style={{ height: '14px', width: 'auto' }} />
-            <span style={{ fontSize: '10px', color: '#64748B', fontFamily: 'monospace' }}>Hackathon 3.0</span>
+            <span style={{ fontSize: '10px', color: '#64748B', fontFamily: 'monospace' }}>TiT 6.0 · QoreID Track</span>
           </div>
           <a
             href="/dashboard"
             className="px-5 py-2 rounded-lg text-sm font-semibold no-underline transition-opacity hover:opacity-90"
-            style={{ background: SQUAD_GRADIENT, color: '#fff' }}
+            style={{ background: BRAND_GRADIENT, color: '#fff' }}
           >
             Open Dashboard →
           </a>
@@ -278,10 +277,9 @@ export default function LandingPage() {
               <div className="flex items-center gap-3 mb-8">
                 <div
                   className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono"
-                  style={{ background: `${SQUAD_FROM}18`, border: `1px solid ${SQUAD_FROM}35`, color: '#FF8560' }}
+                  style={{ background: `${BRAND_FROM}18`, border: `1px solid ${BRAND_FROM}35`, color: '#FF8560' }}
                 >
-                  <img src="/squad-logo.svg" alt="Squad" style={{ height: '12px', width: 'auto' }} />
-                  Hackathon 3.0 · Smart Systems: The Intelligent Economy
+                  TiT 6.0 · Digital Identity & Trust
                 </div>
               </div>
 
@@ -289,28 +287,28 @@ export default function LandingPage() {
                 className="font-display mb-6"
                 style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', lineHeight: 1.1, color: '#FFFFFF', letterSpacing: '-0.02em' }}
               >
-                Financial crime hides<br />in networks.{' '}
-                <span style={{ background: SQUAD_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>TARA sees them all.</span>
+                QoreID proves who they are.{' '}
+                <span style={{ background: BRAND_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>TARA reveals who they're connected to.</span>
               </h1>
 
               <p
                 className="mb-4"
                 style={{ fontSize: '1.15rem', fontWeight: 500, color: '#CBD5E1', lineHeight: 1.55 }}
               >
-                Network-based trust verification built for how money actually moves in Nigeria.
+                A network-layer trust check for identities that have already passed verification.
               </p>
 
               <p
                 className="mb-10"
                 style={{ fontSize: '1rem', color: '#94A3B8', lineHeight: 1.7, maxWidth: '480px' }}
               >
-                TARA — Verification Engine for Risk Analysis — sits on top of Squad's payment infrastructure and watches every transaction in real time. It builds a live relationship graph, detects fraud patterns threshold-based tools miss, and auto-drafts NFIU-compliant STRs when patterns are confirmed. Squad powers both the intelligence and the action.
+                Every identity TARA sees has already passed real verification through QoreID — that's the premise, not a caveat. TARA maps the attributes verified identities share — device, address, employer, the window they signed up in — to surface coordinated rings where every single member is, individually, a real, verified person.
               </p>
 
               <a
                 href="/dashboard"
                 className="inline-block px-8 py-4 rounded-lg font-semibold text-base no-underline transition-opacity hover:opacity-90"
-                style={{ background: SQUAD_GRADIENT, color: '#fff', boxShadow: `0 0 24px ${SQUAD_FROM}40` }}
+                style={{ background: BRAND_GRADIENT, color: '#fff', boxShadow: `0 0 24px ${BRAND_FROM}40` }}
               >
                 Explore the Live Demo →
               </a>
@@ -332,7 +330,7 @@ export default function LandingPage() {
                   className="ml-2 text-[10px] font-mono"
                   style={{ color: '#4B6B8A' }}
                 >
-                  graph-explorer · risk-view · live
+                  graph-explorer · verdict-view · live
                 </span>
               </div>
               <div style={{ padding: '8px 12px 12px' }}>
@@ -354,10 +352,10 @@ export default function LandingPage() {
               className="font-display mb-5"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', lineHeight: 1.15, color: DARK, letterSpacing: '-0.02em' }}
             >
-              8 accounts. Each one clean. All sending to the same beneficiary. Your current system sees nothing.
+              8 identities. Each one verified. All sharing the same device. Verification sees nothing wrong — because nothing is.
             </h2>
             <p style={{ fontSize: '1.05rem', color: '#4B5563', lineHeight: 1.7 }}>
-              Traditional AML tools check entities one by one. Financial crime is coordinated. The gap between individual checks and network reality is where billions disappear.
+              Identity verification checks one person against one record. It was never built to notice that eight different verified people share a device, an address, and an onboarding window. The fraud isn't in any single record — it's in the relationship between records.
             </p>
           </div>
 
@@ -366,20 +364,20 @@ export default function LandingPage() {
             {[
               {
                 icon: <IconUser className="w-5 h-5" style={{ color: DARK }} />,
-                title: 'Customers verified alone',
-                body: 'KYC tools verify one name against one record. When 8 accounts share a hidden director or funnel funds to the same beneficiary, nothing fires. The fraud is in the relationship — not the record.',
+                title: 'One check, one record',
+                body: 'QoreID confirms a name matches a BVN — nothing more. It was never designed to notice that the same device just verified seven other "different" people this week.',
                 delay: '0ms',
               },
               {
                 icon: <IconAlert className="w-5 h-5" style={{ color: DARK }} />,
-                title: 'Thresholds miss structured fraud',
-                body: 'Structured fraud is engineered to stay below your thresholds. Launderers know your rules better than your compliance team does. Rules cannot catch what is designed to avoid them.',
+                title: 'The whole ring passes',
+                body: 'A loan-stacking ring isn’t eight fake identities. It’s eight real, verifiable people sharing one address and one payday. Every individual check comes back clean, because every individual person is who they say they are.',
                 delay: '80ms',
               },
               {
                 icon: <IconGlobe className="w-5 h-5" style={{ color: DARK }} />,
-                title: 'Global tools, local gaps',
-                body: 'International AML platforms were calibrated on European transaction patterns. POS cash-out rings, mobile money agent chains, and naira-crypto loops are Nigerian realities these tools were never trained on.',
+                title: 'A gap by design, not a flaw',
+                body: 'QoreID answers one question: is this person real? Nobody built the layer that asks the second question — are they acting alone. That’s the gap TARA closes.',
                 delay: '160ms',
               },
             ].map(({ icon, title, body, delay }) => (
@@ -427,18 +425,18 @@ export default function LandingPage() {
               className="font-display mb-4"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', lineHeight: 1.15, color: '#FFFFFF', letterSpacing: '-0.02em' }}
             >
-              From transaction to intelligence in five steps.
+              From verification to trust verdict in five steps.
             </h2>
           </div>
 
           {/* Pipeline */}
           <div className="lg-fade grid grid-cols-2 md:grid-cols-5 gap-px rounded-xl overflow-hidden mb-16" style={{ border: '1px solid #1E3358', background: '#1E3358' }}>
             {[
-              { n: '01', title: 'Ingest via Squad',  desc: 'Every transaction processed through Squad fires a real-time webhook into TARA. The moment money moves, TARA knows.' },
-              { n: '02', title: 'Resolve Entities', desc: 'Deduplication across BVN, NIN, account numbers, and name similarity. One person, one node — regardless of how many accounts they hold.' },
-              { n: '03', title: 'Build the Graph',   desc: 'Neo4j graph updated with every entity and relationship. The full financial network becomes visible for the first time.' },
-              { n: '04', title: 'Detect Patterns',  desc: 'Heuristic engine and trained anomaly detection model score every subgraph. Nigerian fraud topologies — POS rings, shell webs, layered chains — are what it was trained on.' },
-              { n: '05', title: 'Report + File via Squad',  desc: 'TARA drafts the NFIU-compliant STR automatically. When your analyst files it, TARA initiates the financial action through Squad — every compliance decision is financially traceable.' },
+              { n: '01', title: 'Verify via QoreID',  desc: 'An identity is submitted with a BVN and core details. QoreID verifies it belongs to a real, matched person — that result is the input everything else depends on.' },
+              { n: '02', title: 'Enter the Graph', desc: 'A verified identity becomes a node in TARA’s live relationship graph, carrying its device, address, employer, and onboarding timestamp.' },
+              { n: '03', title: 'Check Shared Attributes',   desc: 'Every new node is compared against the existing graph for device, address, and employer overlap, plus name-similarity and onboarding-window checks.' },
+              { n: '04', title: 'Compute a Trust Verdict',  desc: 'Identities caught in a flagged pattern get a trust score and a plain-English evidence list — exactly which attributes they share, and with how many others.' },
+              { n: '05', title: 'Human Reviews, Always',  desc: 'The verdict is Approve, Review, or Needs Review — never a hard reject. A flagged cluster goes to a human with the full evidence attached.' },
             ].map(({ n, title, desc }) => (
               <div
                 key={n}
@@ -447,7 +445,7 @@ export default function LandingPage() {
               >
                 <span
                   className="font-mono font-semibold text-sm mb-4 block"
-                  style={{ background: SQUAD_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
+                  style={{ background: BRAND_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
                 >
                   {n}
                 </span>
@@ -469,13 +467,13 @@ export default function LandingPage() {
                 How the graph model works
               </h3>
               <p className="mb-4" style={{ fontSize: '0.95rem', color: '#94A3B8', lineHeight: 1.75 }}>
-                Every person, business, and account is a <strong style={{ color: '#CBD5E1' }}>node</strong>. Every transaction is an <strong style={{ color: '#CBD5E1' }}>edge</strong>. TARA maps the full relationship network and evaluates topology — not individual records. When a subgraph crosses the alert threshold, the STR is drafted automatically and queued for analyst review.
+                Every verified identity is a <strong style={{ color: '#CBD5E1' }}>node</strong>. Every attribute two identities have in common — the same device, the same address, the same employer — is an <strong style={{ color: '#CBD5E1' }}>edge</strong> between them. TARA doesn't just store identities side by side; it maps how they relate.
               </p>
               <p className="mb-4" style={{ fontSize: '0.95rem', color: '#94A3B8', lineHeight: 1.75 }}>
-                The detection engine evaluates subgraph topology — not individual records — to surface patterns like cash-out rings, layered transfer chains, and shell director webs. A risk score is computed per entity and propagates to connected nodes the moment a suspicious pattern is confirmed.
+                Three detection patterns run against that graph: clusters of identities sharing an attribute at a suspicious scale, identities whose names are near-duplicates of another verified identity in the same context, and groups of identities all verified inside the same tight time window on the same device.
               </p>
               <p style={{ fontSize: '0.95rem', color: '#94A3B8', lineHeight: 1.75 }}>
-                When a flagged subgraph crosses the alert threshold, TARA assembles the evidence package and passes it to the STR generation pipeline. Your verification analyst reviews a structured draft — they never write from scratch.
+                When a pattern fires, TARA doesn't quietly log it — it attaches the evidence directly to the identity's trust verdict, in plain language, so whoever reviews it can see exactly why.
               </p>
             </div>
             <div className="lg-fade flex items-center justify-center">
@@ -498,7 +496,7 @@ export default function LandingPage() {
       {/* ════════════════════════════════════════════════════════════════════
           SECTION 5 — WHY NIGERIA
       ════════════════════════════════════════════════════════════════════ */}
-      <section id="why-nigeria" style={{ background: '#FFFFFF', paddingTop: '120px', paddingBottom: '120px' }}>
+      <section id="what-it-detects" style={{ background: '#FFFFFF', paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="max-w-[1200px] mx-auto px-6">
 
           <div className="lg-fade mb-14" style={{ maxWidth: '680px' }}>
@@ -506,10 +504,10 @@ export default function LandingPage() {
               className="font-display mb-5"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', lineHeight: 1.15, color: DARK, letterSpacing: '-0.02em' }}
             >
-              The fraud patterns destroying Nigerian financial institutions aren't in the textbooks. They're in the streets.
+              Three ways a fraud ring shows up in a graph of individually verified people.
             </h2>
             <p style={{ fontSize: '1.05rem', color: '#4B5563', lineHeight: 1.7 }}>
-              Global AML tools were built for global fraud. TARA was built for the patterns that move through Nigerian POS networks, mobile money agents, bureau de change corridors, and informal channels. The difference is everything.
+              Loan-stacking rings and mule identity farms are active, documented fraud patterns — and every account holder in them passes identity verification individually. The group behavior is the signal verification alone was never going to catch.
             </p>
           </div>
 
@@ -522,28 +520,23 @@ export default function LandingPage() {
             />
           </div>
 
-          {/* 2×2 pattern grid — full width now that image is above */}
-          <div className="grid sm:grid-cols-2 gap-5">
+          {/* Three-pattern grid — full width now that image is above */}
+          <div className="grid sm:grid-cols-3 gap-5">
               {[
                 {
-                  title: 'POS Cash-Out Rings',
-                  body: 'A network of agents funnelling funds to one beneficiary through POS terminals — each transaction under the ₦5M reporting threshold. Invisible to rule-based systems. Obvious in a graph.',
+                  title: 'Shared-Attribute Clusters',
+                  body: 'Multiple verified identities sharing the same device fingerprint, home address, or employer, in numbers that stop looking like coincidence. Two flatmates sharing an address is normal. Eight "unrelated" identities sharing one is a ring.',
                   delay: '0ms',
                 },
                 {
-                  title: 'Agent Banking Chains',
-                  body: 'Funds split across dozens of mobile money agents in micro-transactions — each leg looking routine, the chain invisible without a network view. A pattern unique to Nigeria\'s agent banking infrastructure.',
+                  title: 'Identity Fragmentation',
+                  body: 'The same person re-verifying under slightly different spellings of their own name — "Adaeze Nwankwo" and "Adaeze N. Nwankwo" — while sharing the same address or phone number. One person, multiple verified identities.',
                   delay: '80ms',
                 },
                 {
-                  title: 'Naira-Crypto-Naira Loops',
-                  body: 'Clean naira enters a P2P crypto channel, moves through stablecoins, and re-emerges in the formal banking system appearing legitimate. The entry and exit points are the tell — TARA catches them.',
+                  title: 'Coordinated Onboarding',
+                  body: 'A batch of identities all completing verification within the same tight window, on the same device or referral link. Real people don\'t all sign up for the same product within hours of each other by accident.',
                   delay: '160ms',
-                },
-                {
-                  title: 'Shell Director Webs',
-                  body: 'Three businesses. Two shared directors. One registered address. All transacting with each other. Each entity passes individual verification. In TARA\'s graph, the web is immediate.',
-                  delay: '240ms',
                 },
               ].map(({ title, body, delay }) => (
                 <div
@@ -574,33 +567,47 @@ export default function LandingPage() {
       <section style={{ background: DARK, paddingTop: '120px', paddingBottom: '120px' }}>
         <div className="max-w-[1200px] mx-auto px-6">
 
-          <div className="lg-fade mb-16" style={{ maxWidth: '580px' }}>
+          <div className="lg-fade mb-10" style={{ maxWidth: '620px' }}>
             <h2
               className="font-display mb-4"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(1.8rem, 4vw, 2.8rem)', lineHeight: 1.15, color: '#FFFFFF', letterSpacing: '-0.02em' }}
             >
-              What TARA — Verification Engine for Risk Analysis — gives your compliance team.
+              Loan stacking and mule identity farms aren't hypothetical.
             </h2>
+            <p style={{ fontSize: '1.05rem', color: '#94A3B8', lineHeight: 1.7 }}>
+              They're documented, active fraud patterns in Nigerian lending and onboarding — and they work specifically because every individual account holder is a real, verifiable person. TARA is the layer that catches the group behavior, not a fake ID.
+            </p>
+          </div>
+
+          <div
+            className="lg-fade inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium mb-10"
+            style={{ background: `${ACCENT}12`, border: `1px solid ${ACCENT}30`, color: '#6EE7B7' }}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 1L1 4v3c0 3.31 2.58 6.41 6 7.16C10.42 13.41 13 10.31 13 7V4L7 1z" stroke={ACCENT} strokeWidth="1.5" fill="none" />
+              <path d="M4.5 7l2 2 3-3" stroke={ACCENT} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Nothing is ever auto-rejected — every flagged cluster goes to human review with full evidence attached
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               {
-                icon: <IconNetwork className="w-6 h-6" style={{ color: SQUAD_FROM }} />,
-                title: 'Live Trust Graph',
-                body: 'Every entity in your institution, mapped in real time. Risk scores propagate across connected nodes the moment a pattern is detected. Powered by live Squad transaction data.',
+                icon: <IconNetwork className="w-6 h-6" style={{ color: BRAND_FROM }} />,
+                title: 'Live Relationship Graph',
+                body: 'Every verified identity mapped in real time, with the shared attributes connecting it to others visible at a glance — not buried in a database query.',
                 delay: '0ms',
               },
               {
-                icon: <IconFileText className="w-6 h-6" style={{ color: SQUAD_FROM }} />,
-                title: 'Automated STR Drafting',
-                body: 'When suspicious patterns are confirmed, TARA drafts a complete NFIU-compliant STR from the graph evidence. Your analyst reviews, edits, and approves — then files via Squad. Every compliance decision is recorded with a Squad transaction reference, financially traceable and immutably logged.',
+                icon: <IconFileText className="w-6 h-6" style={{ color: BRAND_FROM }} />,
+                title: 'Plain-English Evidence',
+                body: 'Every flagged identity comes with the exact reason: which attribute, which value, how many other identities share it. Nothing to interpret, nothing to take on faith.',
                 delay: '80ms',
               },
               {
-                icon: <IconShield className="w-6 h-6" style={{ color: SQUAD_FROM }} />,
-                title: 'Immutable Audit Trail',
-                body: 'Every detection, review, and decision logged with a cryptographic hash. Built for NFIU and CBN regulator inspection. NDPA-compliant by design.',
+                icon: <IconShield className="w-6 h-6" style={{ color: BRAND_FROM }} />,
+                title: 'Human-Reviewed, Never Auto-Rejected',
+                body: 'The highest-confidence verdict TARA produces is "needs review," not "reject." A shared address between flatmates isn\'t fraud — a person decides, with the full picture in front of them.',
                 delay: '160ms',
               },
             ].map(({ icon, title, body, delay }) => (
@@ -611,7 +618,7 @@ export default function LandingPage() {
               >
                 <div
                   className="w-11 h-11 rounded-lg flex items-center justify-center mb-6"
-                  style={{ background: `${SQUAD_FROM}18`, border: `1px solid ${SQUAD_FROM}30` }}
+                  style={{ background: `${BRAND_FROM}18`, border: `1px solid ${BRAND_FROM}30` }}
                 >
                   {icon}
                 </div>
@@ -653,16 +660,16 @@ export default function LandingPage() {
                 Your data never leaves your walls.
               </h2>
               <p className="mb-5" style={{ fontSize: '1rem', color: '#4B5563', lineHeight: 1.75 }}>
-                TARA deploys inside your own infrastructure — your cloud tenant, your private server, or a dedicated instance we manage. Your transaction data never leaves your environment. The only data that moves is what you choose to send to NFIU — and only when your analyst approves it.
+                TARA deploys inside your own infrastructure — your cloud tenant, your private server, or a dedicated instance we manage. Identity data never leaves your environment. Verification runs through QoreID; everything after that — the graph, the detection, the verdict — stays inside your walls.
               </p>
               <p className="mb-5" style={{ fontSize: '1rem', color: '#4B5563', lineHeight: 1.75 }}>
                 We provide the software. You keep the keys.
               </p>
               <p className="mb-10" style={{ fontSize: '1rem', color: '#4B5563', lineHeight: 1.75 }}>
-                The Neo4j graph database, PostgreSQL transaction store, and TARA detection engine run on your compute. STR reports are the only data that leave — and only to NFIU, by your verification analyst's action.
+                The identity graph and the durable identity store run on your compute. A trust verdict — Approve, Review, or Needs Review — is the only output, and it never leaves the review screen without a human decision.
               </p>
               <p className="mb-10" style={{ fontSize: '1rem', color: '#4B5563', lineHeight: 1.75 }}>
-                Squad transactions are received via secure webhook. TARA processes them entirely within your infrastructure. Squad powers the data flow — your walls control it.
+                Identities are verified through QoreID's API and enter the graph immediately. Nothing about how an identity got verified — or who reviewed the verdict — leaves your infrastructure.
               </p>
               <div
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium"
@@ -672,7 +679,7 @@ export default function LandingPage() {
                   <path d="M7 1L1 4v3c0 3.31 2.58 6.41 6 7.16C10.42 13.41 13 10.31 13 7V4L7 1z" stroke="#00D68F" strokeWidth="1.5" fill="none" />
                   <path d="M4.5 7l2 2 3-3" stroke="#00D68F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                Designed for NDPA compliance and CBN KYC reporting standards
+                NDPA-aligned by design — purpose-limited to fraud prevention
               </div>
             </div>
 
@@ -694,20 +701,20 @@ export default function LandingPage() {
               className="font-display mb-5"
               style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: 'clamp(2rem, 4.5vw, 3.2rem)', lineHeight: 1.15, color: '#FFFFFF', letterSpacing: '-0.02em' }}
             >
-              See the network.<br />Verify the truth.<br />Protect the system.
+              They're verified.<br />TARA shows you if they're alone.<br />You make the call.
             </h2>
             <p className="mb-10" style={{ fontSize: '1.05rem', color: '#94A3B8', lineHeight: 1.65 }}>
-              Built for Nigerian financial institutions that take compliance seriously.
+              Built for any platform onboarding users — lenders, fintechs, marketplaces — who need more than a verification checkmark.
             </p>
             <a
               href="/dashboard"
               className="inline-block px-10 py-4 rounded-lg font-semibold text-base no-underline transition-opacity hover:opacity-90"
-              style={{ background: SQUAD_GRADIENT, color: '#fff', fontSize: '1rem', boxShadow: `0 0 32px ${SQUAD_FROM}40` }}
+              style={{ background: BRAND_GRADIENT, color: '#fff', fontSize: '1rem', boxShadow: `0 0 32px ${BRAND_FROM}40` }}
             >
               Open the Live Dashboard →
             </a>
             <p className="mt-6" style={{ fontSize: '0.85rem', color: '#475569' }}>
-              No login required. The full pipeline is live — Squad webhook ingestion, graph detection, STR generation. See it run.
+              No login required. The full pipeline is live — QoreID verification, graph detection, trust verdicts. See it run.
             </p>
           </div>
         </div>
@@ -723,22 +730,22 @@ export default function LandingPage() {
             <div>
               <div className="flex items-center gap-3 mb-3">
                 <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <rect width="32" height="32" rx="7" fill={SQUAD_FROM} fillOpacity="0.15" />
-                  <circle cx="16" cy="10" r="3" fill={SQUAD_FROM} />
-                  <circle cx="8"  cy="24" r="3" fill={SQUAD_TO} fillOpacity="0.9" />
-                  <circle cx="24" cy="24" r="3" fill={SQUAD_TO} fillOpacity="0.9" />
-                  <line x1="16" y1="13" x2="8"  y2="21" stroke={SQUAD_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
-                  <line x1="16" y1="13" x2="24" y2="21" stroke={SQUAD_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
-                  <line x1="8"  y1="24" x2="24" y2="24" stroke={SQUAD_TO} strokeWidth="1.5" strokeOpacity="0.3" />
+                  <rect width="32" height="32" rx="7" fill={BRAND_FROM} fillOpacity="0.15" />
+                  <circle cx="16" cy="10" r="3" fill={BRAND_FROM} />
+                  <circle cx="8"  cy="24" r="3" fill={BRAND_TO} fillOpacity="0.9" />
+                  <circle cx="24" cy="24" r="3" fill={BRAND_TO} fillOpacity="0.9" />
+                  <line x1="16" y1="13" x2="8"  y2="21" stroke={BRAND_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
+                  <line x1="16" y1="13" x2="24" y2="21" stroke={BRAND_FROM} strokeWidth="1.5" strokeOpacity="0.6" />
+                  <line x1="8"  y1="24" x2="24" y2="24" stroke={BRAND_TO} strokeWidth="1.5" strokeOpacity="0.3" />
                 </svg>
                 <span
                   style={{ fontFamily: "'Space Grotesk', 'DM Sans', sans-serif", fontWeight: 700, fontSize: '1.1rem', color: '#FFFFFF' }}
                 >
-                  VE<span style={{ background: SQUAD_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>RA</span>
+                  TA<span style={{ background: BRAND_GRADIENT, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>RA</span>
                 </span>
               </div>
               <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.65 }}>
-                TARA — Verification Engine for Risk Analysis. Network-based trust verification for Nigeria, powered by Squad.
+                TARA — Trust And Relationship Analysis. The network layer on top of QoreID verification.
               </p>
             </div>
 
@@ -746,7 +753,7 @@ export default function LandingPage() {
             <div className="flex flex-col gap-3">
               <p style={{ fontSize: '0.75rem', color: '#374151', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Navigation</p>
               <button onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })} className="text-left text-sm bg-transparent border-0 cursor-pointer" style={{ color: '#64748B' }}>How It Works</button>
-              <button onClick={() => document.getElementById('why-nigeria')?.scrollIntoView({ behavior: 'smooth' })}  className="text-left text-sm bg-transparent border-0 cursor-pointer" style={{ color: '#64748B' }}>Why Nigeria</button>
+              <button onClick={() => document.getElementById('what-it-detects')?.scrollIntoView({ behavior: 'smooth' })}  className="text-left text-sm bg-transparent border-0 cursor-pointer" style={{ color: '#64748B' }}>What It Detects</button>
               <a href="/dashboard" className="text-sm no-underline" style={{ color: '#64748B' }}>Open Dashboard</a>
             </div>
 
@@ -754,18 +761,17 @@ export default function LandingPage() {
             <div>
               <p style={{ fontSize: '0.75rem', color: '#374151', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '12px' }}>Built for</p>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                <img src="/squad-logo.svg" alt="Squad" style={{ height: '18px', width: 'auto' }} />
-                <span style={{ fontSize: '0.85rem', color: '#FF6B3D', fontWeight: 600 }}>Hackathon 3.0</span>
+                <span style={{ fontSize: '0.85rem', color: '#FF6B3D', fontWeight: 600 }}>TiT 6.0 · QoreID Track</span>
               </div>
               <p style={{ fontSize: '0.82rem', color: '#475569', lineHeight: 1.65 }}>
-                Smart Systems: The Intelligent Economy
+                Digital Identity & Trust
               </p>
             </div>
           </div>
 
           <div style={{ borderTop: '1px solid #1E3358', paddingTop: '24px' }}>
             <p style={{ fontSize: '0.8rem', color: '#374151' }}>
-              © 2026 TARA — Team Veltrix. All rights reserved.
+              © 2026 TARA — Team Overclock. All rights reserved.
             </p>
           </div>
         </div>

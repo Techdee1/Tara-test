@@ -15,9 +15,9 @@
   --color-risk-medium: #F59E0B;
   --color-risk-low: #22C55E;
   --color-risk-none: #3B82F6;
-  /* Squad brand */
-  --color-squad-from: #FF4C1D;
-  --color-squad-to: #9B0063;
+  /* Brand accent */
+  --color-brand-from: #FF4C1D;
+  --color-brand-to: #9B0063;
   --font-family-sans: 'DM Sans', sans-serif;
   --font-family-mono: 'JetBrains Mono', monospace;
 }
@@ -60,7 +60,7 @@
 .lg-halo-5                   { animation: lg-node-halo 2.2s ease-in-out 1.6s infinite; }
 .font-display                { font-family: 'Space Grotesk', 'DM Sans', sans-serif; }
 
-@keyframes squad-shimmer {
+@keyframes brand-shimmer {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
@@ -73,19 +73,19 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .text-squad-gradient {
+  .text-brand-gradient {
     background: linear-gradient(135deg, #FF4C1D, #C4006A, #9B0063);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .squad-gradient-bg {
+  .brand-gradient-bg {
     background: linear-gradient(135deg, #FF4C1D, #9B0063);
   }
-  .squad-gradient-border {
+  .brand-gradient-border {
     position: relative;
   }
-  .squad-gradient-border::before {
+  .brand-gradient-border::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -98,11 +98,11 @@
     pointer-events: none;
   }
   .glow-accent  { box-shadow: 0 0 20px rgba(0, 212, 170, 0.15); }
-  .glow-squad   { box-shadow: 0 0 24px rgba(255, 76, 29, 0.18); }
+  .glow-brand   { box-shadow: 0 0 24px rgba(255, 76, 29, 0.18); }
   .font-mono { font-family: 'JetBrains Mono', monospace; }
-  .squad-shimmer {
+  .brand-shimmer {
     background: linear-gradient(270deg, #FF4C1D, #C4006A, #9B0063, #FF4C1D);
     background-size: 300% 300%;
-    animation: squad-shimmer 4s ease infinite;
+    animation: brand-shimmer 4s ease infinite;
   }
 }

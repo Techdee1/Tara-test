@@ -18,32 +18,28 @@ export default function Login() {
     if (!email || !password) { setError('Please enter email and password'); return }
     setLoading(true)
     await new Promise((r) => setTimeout(r, 800))
-    login({ name: 'Akeem Jr.', email, role: 'CCO' }, 'mock-jwt-token-grace-2026')
+    login({ name: 'Akeem Jr.', email, role: 'Reviewer' }, 'mock-jwt-token-tara-2026')
     navigate('/dashboard')
   }
 
   return (
     <div className="w-full max-w-md">
-      {/* Squad Hackathon header */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <img src="/squad-logo.svg" alt="Squad" className="h-6 w-auto" />
-          <span className="text-[10px] font-bold text-white/60 uppercase tracking-widest font-mono">×</span>
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full squad-gradient-bg">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full brand-gradient-bg">
             <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
-            <span className="text-[10px] font-bold text-white uppercase tracking-wide">Hackathon 3.0</span>
+            <span className="text-[10px] font-bold text-white uppercase tracking-wide">TiT 6.0 · QoreID Track</span>
           </span>
         </div>
         <h1 className="text-3xl font-bold">
-          <span className="text-white">VE</span><span className="text-squad-gradient">RA</span>
+          <span className="text-white">TA</span><span className="text-brand-gradient">RA</span>
         </h1>
-        <p className="text-sm text-[#94A3B8] mt-1">Financial Trust Verification Platform</p>
-        <p className="text-[10px] text-[#4B5563] font-mono mt-0.5">Smart Systems · The Intelligent Economy</p>
+        <p className="text-sm text-[#94A3B8] mt-1">QoreID proves who they are. TARA reveals who they're connected to.</p>
       </div>
 
       <div className="bg-[#0D1117] border border-[#1E2535] rounded-xl overflow-hidden">
         {/* Gradient top border */}
-        <div className="h-0.5 w-full squad-gradient-bg" />
+        <div className="h-0.5 w-full brand-gradient-bg" />
 
         <div className="p-8">
           <h2 className="text-base font-semibold text-[#F7F9FC] mb-6">Sign in to your account</h2>
@@ -52,7 +48,7 @@ export default function Login() {
             <Input
               label="Email Address"
               type="email"
-              placeholder="officer@bank.ng"
+              placeholder="you@platform.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -75,7 +71,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 rounded-lg squad-gradient-bg text-white text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60 flex items-center justify-center gap-2 glow-squad"
+              className="w-full py-2.5 px-4 rounded-lg brand-gradient-bg text-white text-sm font-semibold transition-opacity hover:opacity-90 disabled:opacity-60 flex items-center justify-center gap-2 glow-brand"
             >
               {loading ? (
                 <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Signing in…</>
@@ -92,8 +88,7 @@ export default function Login() {
       </div>
 
       <div className="flex items-center justify-center gap-2 mt-6">
-        <img src="/squad-logo.svg" alt="Squad" className="h-3.5 w-auto opacity-40" />
-        <p className="text-[10px] text-[#4B5563] font-mono">© 2026 TARA · Team Veltrix · NFIU-compliant</p>
+        <p className="text-[10px] text-[#4B5563] font-mono">© 2026 TARA · Team Overclock</p>
       </div>
     </div>
   )

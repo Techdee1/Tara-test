@@ -15,21 +15,21 @@ const navItems = [
 function SidebarContent({ onClose }) {
   return (
     <aside className="w-56 h-full bg-[#0D1117] border-r border-[#1E2535] flex flex-col relative overflow-hidden">
-      {/* Squad gradient top strip */}
-      <div className="h-0.5 w-full squad-gradient-bg shrink-0" />
+      {/* Brand accent top strip */}
+      <div className="h-0.5 w-full brand-gradient-bg shrink-0" />
 
       {/* Logo area */}
       <div className="px-4 pt-4 pb-3 border-b border-[#1E2535] shrink-0">
         <NavLink to="/" onClick={onClose} className="flex items-center gap-2 group mb-3">
           <div className="flex items-baseline gap-1">
             <span className="text-xl font-bold tracking-tight text-white">TA</span>
-            <span className="text-xl font-bold tracking-tight text-squad-gradient">RA</span>
+            <span className="text-xl font-bold tracking-tight text-brand-gradient">RA</span>
           </div>
           <span className="text-[9px] text-[#4B5563] font-mono bg-[#1C2333] px-1.5 py-0.5 rounded">v1.0</span>
         </NavLink>
 
         {/* Track badge */}
-        <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md squad-gradient-bg">
+        <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md brand-gradient-bg">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse shrink-0" />
           <span className="text-[9px] font-bold text-white tracking-wide uppercase">Digital Identity & Trust</span>
         </div>

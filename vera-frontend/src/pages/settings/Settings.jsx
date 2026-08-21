@@ -49,9 +49,9 @@ export default function Settings() {
             <div className="space-y-4 max-w-md">
               <h3 className="text-sm font-semibold text-[#F7F9FC] mb-4">Profile Settings</h3>
               <Input label="Full Name" defaultValue="Akeem Jr." />
-              <Input label="Email" type="email" defaultValue="akeem@bank.ng" />
-              <Input label="Role" defaultValue="Chief Compliance Officer" />
-              <Input label="Institution" defaultValue="First Bank Nigeria" />
+              <Input label="Email" type="email" defaultValue="akeem@tara-demo.ng" />
+              <Input label="Role" defaultValue="Trust & Safety Reviewer" />
+              <Input label="Platform" defaultValue="TARA Demo Instance" />
             </div>
           )}
 
@@ -59,10 +59,10 @@ export default function Settings() {
             <div className="space-y-4 max-w-md">
               <h3 className="text-sm font-semibold text-[#F7F9FC] mb-4">Notification Preferences</h3>
               {[
-                { label: 'High Risk Alerts', desc: 'Notify immediately when HIGH risk alert is detected' },
-                { label: 'STR Status Changes', desc: 'Notify when STR status is updated' },
-                { label: 'New Entity Flags', desc: 'Notify when entity risk score changes significantly' },
-                { label: 'Daily Digest', desc: 'Daily summary of all compliance activity' },
+                { label: 'Needs Review Verdicts', desc: 'Notify immediately when an identity is flagged Needs Review' },
+                { label: 'New Ring Detected', desc: 'Notify when a new shared-attribute cluster crosses the review threshold' },
+                { label: 'Verification Failures', desc: 'Notify when a QoreID verification comes back unverified' },
+                { label: 'Daily Digest', desc: 'Daily summary of verification and detection activity' },
               ].map((item) => (
                 <label key={item.label} className="flex items-start gap-3 cursor-pointer">
                   <input type="checkbox" defaultChecked className="mt-0.5 accent-[#00D4AA]" />
@@ -79,15 +79,7 @@ export default function Settings() {
             <div className="space-y-4 max-w-md">
               <h3 className="text-sm font-semibold text-[#F7F9FC] mb-4">API Configuration</h3>
               <Input label="API Base URL" defaultValue="http://localhost:8000/api/v1" />
-              <Input label="API Key" type="password" defaultValue="••••••••••••••••" />
-              <div>
-                <p className="text-xs text-[#4B5563] uppercase tracking-wider mb-2">AI Model</p>
-                <select className="w-full bg-[#1C2333] border border-[#2D3748] rounded-md px-3 py-2 text-sm text-[#F7F9FC] focus:outline-none focus:border-[#00D4AA]/50">
-                  <option>llama-3.3-70b</option>
-                  <option>gpt-4o</option>
-                  <option>claude-3-5-sonnet</option>
-                </select>
-              </div>
+              <Input label="QoreID API Key" type="password" defaultValue="••••••••••••••••" />
             </div>
           )}
 
